@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+const apiUrl = import.meta.env.VITE_API_URL;
 
 export default function Profile() {
   const [userdata, setUserData] = useState(null);
@@ -11,7 +12,7 @@ export default function Profile() {
 
   const Getdata = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/api/profile", {
+      const response = await axios.get(`${apiUrl}/api/profile`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -29,7 +30,7 @@ export default function Profile() {
 
   const Fetchmypost = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/post/mypost", {
+      const response = await axios.get(`${apiUrl}/post/mypost`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

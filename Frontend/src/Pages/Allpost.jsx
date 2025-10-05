@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { FaHeart, FaComment, FaShare } from "react-icons/fa";
+const apiUrl = import.meta.env.VITE_API_URL;
 
 export default function Allpost() {
   const [allPosts, setAllPosts] = useState([]);
@@ -8,7 +10,7 @@ export default function Allpost() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/post/allpost", {
+        const res = await axios.get(`${apiUrl}/post/allpost`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -32,9 +34,10 @@ export default function Allpost() {
           {allPosts.map((post) => (
             <div
               key={post._id}
-              className="bg-white rounded-xl shadow-lg p-4 flex flex-col gap-4"
+              className="bg-white rounded-xl shadow-lg flex flex-col gap-4"
             >
-              <div className="flex items-center gap-4">
+              {/* Post Header */}
+              <div className="flex items-center gap-4 p-4">
                 <img
                   src={post.user?.photo}
                   alt="User"
@@ -48,15 +51,33 @@ export default function Allpost() {
                 </div>
               </div>
 
+              {/* Post Image */}
               <div>
-                <h3 className="text-md font-medium text-gray-700 mb-2">
-                  {post.title}
-                </h3>
                 <img
                   src={post.poster}
                   alt="Post"
                   className="w-full max-h-60 object-cover rounded-lg"
                 />
+              </div>
+
+              {/* Post Title */}
+              <div className="px-4">
+                <h3 className="text-md font-medium text-gray-700 mb-2">
+                  {post.title}
+                </h3>
+              </div>
+
+              {/* Like, Comment, Share Icons */}
+              <div className="flex items-center gap-6 px-4 pb-4 text-gray-600">
+                <button className="flex items-center gap-1 hover:text-red-500">
+                  <FaHeart /> Like
+                </button>
+                <button className="flex items-center gap-1 hover:text-blue-500">
+                  <FaComment /> Comment
+                </button>
+                <button className="flex items-center gap-1 hover:text-green-500">
+                  <FaShare /> Share
+                </button>
               </div>
             </div>
           ))}

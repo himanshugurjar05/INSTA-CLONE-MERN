@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+const apiUrl = import.meta.env.VITE_API_URL;
 
 export default function Signup() {
   const navigate = useNavigate();
@@ -12,7 +13,7 @@ export default function Signup() {
 
   const handleSubmit = async (e) => {
     e.preventDefault(); 
-
+    
     const data = new FormData();
     data.append('name', name);
     data.append('email', email);
@@ -20,7 +21,7 @@ export default function Signup() {
     data.append('photo', photo);
 
     try {
-      const response = await axios.post('http://localhost:5000/api/signup', data, {
+      const response = await axios.post(`${apiUrl}/api/signup`, data, {
         headers: { 'Content-Type': 'multipart/form-data' },
       });
       localStorage.setItem("token", response.data.token)

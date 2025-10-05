@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+const apiUrl = import.meta.env.VITE_API_URL;
 
 export default function Addpost() {
   const [title, setTitle] = useState("");
@@ -17,7 +18,7 @@ export default function Addpost() {
 
     try {
       const res = await axios.post(
-        "http://localhost:5000/post/createpost",
+        `${apiUrl}/post/createpost`,
         formData,
         {
           headers: {
