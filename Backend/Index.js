@@ -39,7 +39,7 @@ mongoose
   .then(() => console.log("✅ Database Connected Successfully"))
   .catch((err) => console.log("❌ Database Connection Failed:", err));
 
-app.use("/api", router);
+app.use("/", router);
 app.use("/post", postrouter);
 
 const PORT = process.env.PORT || 5000;

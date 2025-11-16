@@ -63,11 +63,11 @@ export default function Navbar() {
             <>
               <li className="flex items-center gap-1 hover:text-blue-600 transition duration-200 cursor-pointer">
                 <AiOutlineUserAdd className="text-xl" />
-                <Link to="/api/signup">Signup</Link>
+                <Link to="/signup">Signup</Link>
               </li>
               <li className="flex items-center gap-1 hover:text-blue-600 transition duration-200 cursor-pointer">
                 <AiOutlineLogin className="text-xl" />
-                <Link to="/api/login">Login</Link>
+                <Link to="/login">Login</Link>
               </li>
             </>
           )}
