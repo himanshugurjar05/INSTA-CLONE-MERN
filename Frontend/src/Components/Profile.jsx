@@ -12,7 +12,7 @@ export default function Profile() {
 
   const Getdata = async () => {
     try {
-      const response = await axios.get(`${apiUrl}/api/profile`, {
+      const response = await axios.get(`${apiUrl}/profile`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },

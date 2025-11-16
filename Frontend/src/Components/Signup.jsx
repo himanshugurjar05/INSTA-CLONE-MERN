@@ -21,7 +21,7 @@ export default function Signup() {
     data.append('photo', photo);
 
     try {
-      const response = await axios.post(`${apiUrl}/api/signup`, data, {
+      const response = await axios.post(`${apiUrl}/signup`, data, {
         headers: { 'Content-Type': 'multipart/form-data' },
       });
       localStorage.setItem("token", response.data.token)
