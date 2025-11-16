@@ -14,7 +14,7 @@ app.use(express.json());
 const allowedOrigins = [
   "http://localhost:5173",
   // "https://hubly-t2vc.onrender.com",
-  "https://hubly-io-a026.onrender.com"
+  "https://hubly-io-9jlc.onrender.com"
 ];
 
 app.use(
